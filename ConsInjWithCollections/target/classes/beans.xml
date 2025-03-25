@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans  
+    xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+               http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">  
+  
+<bean id="country" class="com.demo.Country"> 
+<constructor-arg value="4" type="int"></constructor-arg> 
+<constructor-arg value="India"></constructor-arg>
+</bean>
+<bean id="parmanantaddress" class="com.demo.Address">
+<constructor-arg value="668" type="int"></constructor-arg>
+<constructor-arg value="Saniwar Peth"></constructor-arg>
+<constructor-arg value="Pune"></constructor-arg>
+<constructor-arg value="411068" type="int"></constructor-arg>
+</bean>
+
+<bean id="currentaddress" class="com.demo.Address">
+<constructor-arg value="550" type="int"></constructor-arg>
+<constructor-arg value="Tadiwala road"></constructor-arg>
+<constructor-arg value="Pune"></constructor-arg>
+<constructor-arg value="411001" type="int"></constructor-arg>
+</bean>
+
+<bean id="question1" class="com.demo.Question">
+		<constructor-arg value="1" type="int" />
+		<constructor-arg value="what is java" />
+	</bean>
+
+<bean id="question2" class="com.demo.Question">
+		<constructor-arg value="2" type="int" />
+		<constructor-arg value="what is c++" />
+</bean>
+<bean id="answer1" class="com.demo.Answer">
+		<constructor-arg value="1" type="int" />
+		<constructor-arg
+			value="java is object oriented langauge" />
+	</bean>
+<bean id="answer2" class="com.demo.Answer">
+		<constructor-arg value="2" type="int" />
+		<constructor-arg
+			value="c++ is also object oriented langauge" />
+	</bean>
+
+<bean id="person" class="com.demo.Person">
+<constructor-arg value="101" type="int"></constructor-arg>
+<constructor-arg value="Rajan Ram"></constructor-arg>
+<constructor-arg ref="country"></constructor-arg>
+
+<constructor-arg>
+	<list>
+		<value>English</value>
+		<value>Hindi</value>
+		<value>Marathi</value>
+		<value>Maithli</value>
+	</list>
+</constructor-arg>
+<constructor-arg>
+	<list>
+		<ref bean="parmanantaddress"/>
+		<ref bean="currentaddress"/>
+	</list>
+</constructor-arg>
+
+<constructor-arg>
+	<map>
+	<entry key="mobile" value="9763127643" />
+	<entry key="landline" value="02099665544" />
+	</map>
+</constructor-arg>
+<constructor-arg>
+	<map>
+		<entry key-ref="question1" value-ref="answer1"/>
+		<entry key-ref="question2" value-ref="answer2"/>
+	</map>
+</constructor-arg>
+</bean>
+</beans>
